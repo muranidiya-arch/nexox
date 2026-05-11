@@ -31,13 +31,14 @@ html.lenis {
     overflow: hidden;
 }
 
-body {
+html, body {
     background-color: var(--bg-color);
     color: var(--text-color);
     font-family: var(--font-sans);
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    width: 100%;
 }
 
 body::before {
@@ -154,10 +155,11 @@ body::before {
     justify-content: space-between;
     position: relative;
     border-bottom: 1px solid var(--border-color);
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop');
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1511497584788-876760111969?q=80&w=1932&auto=format&fit=crop');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    filter: grayscale(1);
 }
 
 .hero-top-bar {
@@ -534,6 +536,8 @@ body::before {
         height: 50px;
     }
 }
+
+@media (max-width: 1024px) {
     .hero h1 { font-size: 5rem; }
     .services-intro h2 { font-size: 4rem; }
     .contact h2 { font-size: 6rem; }
@@ -541,15 +545,128 @@ body::before {
     .info-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
+.menu-toggle {
+    display: none;
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 0.5rem 1rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+}
+
 @media (max-width: 768px) {
     .header { padding: 1rem 1.5rem; }
-    .hero, .services-intro, .brands, .contact { padding: 6rem 1.5rem 3rem; }
-    .hero h1 { font-size: 3.5rem; }
-    .nav { display: none; }
-    .grid-container { grid-template-columns: 1fr; }
-    .info-grid { grid-template-columns: 1fr; }
-    .contact h2 { font-size: 4rem; }
-    .hero-top-bar { grid-template-columns: 1fr; gap: 1rem; text-align: left; }
-    .hero-top-bar .center, .hero-top-bar .right { text-align: left; }
-    .hero-mission { flex-direction: column; gap: 1rem; }
+    .logo { font-size: 1.5rem; }
+    
+    .nav, .status, .header-right .cta-button {
+        display: none;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero, .services-intro, .brands, .contact { 
+        padding: 5rem 1.2rem 3rem; 
+    }
+    
+    .hero h1 { 
+        font-size: 2.5rem; 
+        margin-bottom: 2rem;
+        word-wrap: break-word;
+    }
+    
+    .hero-top-bar { 
+        grid-template-columns: 1fr; 
+        gap: 0.5rem; 
+        text-align: left; 
+    }
+    
+    .hero-top-bar .center, .hero-top-bar .right { 
+        text-align: left; 
+    }
+    
+    .hero-mission { 
+        flex-direction: column; 
+        gap: 1rem; 
+    }
+    
+    .hero-mission p {
+        font-size: 1rem;
+    }
+
+    .hero-bottom {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .services-intro h2 { 
+        font-size: 2.5rem; 
+        margin-bottom: 2rem;
+    }
+    
+    .services-intro p {
+        font-size: 1.1rem;
+    }
+
+    .grid-container { 
+        grid-template-columns: 1fr; 
+    }
+    
+    .service-card {
+        padding: 2.5rem 1.2rem;
+        min-height: auto;
+        border-right: none !important;
+    }
+
+    .brands h2 {
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+    }
+
+    .case-studies {
+        grid-template-columns: 1fr;
+    }
+
+    .info-grid { 
+        grid-template-columns: 1fr; 
+    }
+    
+    .info-item {
+        padding: 2rem 1.2rem;
+        border-right: none !important;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .info-item .value {
+        font-size: 2.5rem;
+    }
+
+    .contact h2 { 
+        font-size: 2.8rem; 
+    }
+
+    .contact-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+
+    .email {
+        font-size: 1.2rem;
+    }
+
+    .contact-footer .links {
+        gap: 1.5rem;
+        flex-wrap: wrap;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 380px) {
+    .hero h1 { font-size: 2.2rem; }
+    .contact h2 { font-size: 2.4rem; }
 }
