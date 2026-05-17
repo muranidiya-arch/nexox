@@ -87,21 +87,43 @@ caseCards.forEach((card) => {
     });
 });
 
-// Info Items
-const infoItems = document.querySelectorAll(".info-item");
-infoItems.forEach((item, index) => {
-    gsap.from(item, {
-        scrollTrigger: {
-            trigger: item,
-            start: "top 90%",
-            toggleActions: "play none none none"
-        },
-        opacity: 0,
-        y: 20,
-        duration: 0.8,
-        delay: index * 0.1,
-        ease: "power2.out"
-    });
+// Play Section Animations
+gsap.from(".play-content > *", {
+    scrollTrigger: {
+        trigger: ".play-section",
+        start: "top 85%",
+        toggleActions: "play none none none"
+    },
+    opacity: 0,
+    y: 30,
+    duration: 1,
+    stagger: 0.2,
+    ease: "power3.out"
+});
+
+gsap.from(".phases-card", {
+    scrollTrigger: {
+        trigger: ".play-section",
+        start: "top 80%",
+        toggleActions: "play none none none"
+    },
+    opacity: 0,
+    y: 40,
+    duration: 1.2,
+    ease: "power3.out"
+});
+
+gsap.from(".phase-item", {
+    scrollTrigger: {
+        trigger: ".phases-card",
+        start: "top 85%",
+        toggleActions: "play none none none"
+    },
+    opacity: 0,
+    y: 20,
+    duration: 0.8,
+    stagger: 0.15,
+    ease: "power2.out"
 });
 
 // Header background change on scroll
